@@ -37,36 +37,11 @@ This dashboard includes:
 
 # Behind the Scenes
 
-This project uses:
+This portfolio version uses sample Excel files as its data source.
 
-- **Power BI** for reporting and visualization
-- **Power Query** for cleaning and shaping the data
-- **DAX** for business logic and time intelligence
-- **Excel** as the sample data source
+The production version was designed to connect directly to an Amazon RDS (AWS MySQL) database through Power Query, where it refreshed from live business data.
 
-Some of the custom DAX measures include:
-
-- Year-over-year growth
-- Gross margin calculations
-- Goal variance
-- Dynamic KPI indicators
-- Time intelligence measures
-
----
-
-# Data Model
-
-The dashboard uses a shared **Date** table that connects the sales datasets, allowing all visuals and calculations to stay synchronized across the report.
-
-```
-              Date
-         ┌─────┼─────┐
-         │     │     │
-         ▼     ▼     ▼
- Sales_Booked
- Sales_Invoiced
- Shipments_Goal
-```
+The report uses custom DAX measures for year-over-year comparisons, profitability analysis, KPI calculations, and dynamic reporting.
 
 ---
 
@@ -95,8 +70,8 @@ README.md
 
 1. Download or clone the repository.
 2. Open the `.pbix` file in Power BI Desktop.
-3. If needed, reconnect the report to the Excel files in the `data` folder.
-4. Refresh the report.
+4. If needed, change the DataFolder parameter to be the path to the folder containing the excel files.
+5. Refresh the report.
 
 ---
 
