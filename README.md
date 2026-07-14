@@ -22,7 +22,7 @@ Built in **Microsoft Power BI**, this dashboard combines bookings, shipments, sh
 
 # Dashboard Preview
 
-![Dashboard Overview](images/dashboard-overview.png)
+![Dashboard Overview](images/Dashboard_Overview.png)
 
 ---
 
