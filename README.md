@@ -1,20 +1,44 @@
 # 📊 Sales Analytics Dashboard
 
-> An interactive Power BI dashboard for monitoring sales performance, profitability, and operational KPIs using Power BI, DAX, Power Query, and dimensional data modeling.
+> An interactive Power BI dashboard for monitoring sales performance, profitability, and operational KPIs using Power BI, DAX, and Power Query.
+
+![Dashboard Overview](images/dashboard-overview.png)
+
+![Power BI](https://img.shields.io/badge/Power%20BI-BI-F2C811?logo=powerbi&logoColor=black)
+![DAX](https://img.shields.io/badge/DAX-Time%20Intelligence-blue)
+![Power Query](https://img.shields.io/badge/Power%20Query-ETL-green)
+![Excel](https://img.shields.io/badge/Data-Excel-217346?logo=microsoft-excel&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+---
+
+# Executive Summary
+
+Organizations rely on timely and accurate sales reporting to monitor performance, evaluate profitability, and measure progress toward business goals. This project demonstrates the development of an executive-level analytics dashboard that consolidates sales data into a single interactive reporting solution.
+
+Built in **Microsoft Power BI**, this dashboard combines bookings, shipments, shipment goals, and gross margin metrics into an intuitive interface designed for business users. Through advanced DAX calculations, Power Query transformations, and dimensional data modeling, the report enables users to analyze trends, compare historical performance, and identify operational opportunities.
+
+> **Note:** All data contained in this repository is fictional and was created solely for demonstration and portfolio purposes.
+
+---
+
+# Dashboard Preview
 
 ![Dashboard Overview](images/dashboard-overview.png)
 
 ---
 
-# Overview
+# Business Objectives
 
-The Sales Analytics Dashboard is a business intelligence solution built in **Microsoft Power BI** that provides executives and business leaders with a centralized view of sales performance.
+This dashboard was designed to answer common executive reporting questions.
 
-The dashboard combines bookings, shipments, profitability, and operational metrics into a single interactive report that supports strategic decision-making through dynamic filtering, KPI monitoring, and year-over-year analysis.
-
-This project demonstrates advanced Power BI development techniques including custom DAX calculations, Power Query transformations, dimensional modeling, time intelligence, KPI reporting, and interactive visual design.
-
-**Note:** All data included in this repository is **fictional** and was generated solely for portfolio and demonstration purposes. No proprietary or confidential company information is included.
+| Business Question | Dashboard Solution |
+|-------------------|--------------------|
+| Are shipments meeting monthly goals? | Shipments vs Goal visualization |
+| How does this year compare to last year? | Dynamic Year-over-Year analysis |
+| Is profitability improving? | Gross Margin KPI and trend analysis |
+| How are bookings trending? | Executive KPI scorecards |
+| What are monthly sales trends? | Interactive monthly visualizations |
 
 ---
 
@@ -22,124 +46,149 @@ This project demonstrates advanced Power BI development techniques including cus
 
 ## Executive KPI Scorecards
 
-Monitor high-level business performance through dynamic KPI cards including:
+The dashboard provides high-level visibility into key business metrics.
 
-- Total Bookings
-- Total Shipments
-- Shipment Goal
+**KPIs Included**
+
+- Bookings
+- Shipments
+- Shipment Goals
 - Gross Margin
 - Gross Margin %
 - Booked Lines
 - Shipped Lines
 
-Each KPI includes:
-
-- Current value
-- Year-over-Year comparison
-- Color-coded performance indicators
-- Dynamic filtering
+Each KPI includes dynamic Year-over-Year comparisons and conditional formatting to quickly identify performance changes.
 
 ---
 
-## Sales vs Goal Analysis
+## Shipment Performance
 
-Compare monthly shipment performance against predefined operational goals.
+Track monthly shipment activity against organizational goals.
 
-Features include:
+### Capabilities
 
 - Monthly shipment totals
-- Goal tracking
-- Variance visualization
-- Performance monitoring
+- Goal comparison
+- Variance analysis
+- Interactive filtering
 
 ---
 
-## Year-over-Year Sales Trends
+## Year-over-Year Analysis
 
-Analyze shipment performance over multiple years.
+Compare current performance against prior periods using custom DAX time intelligence.
 
-Capabilities include:
+### Features
 
-- Current Year vs Previous Year
-- Trend analysis
-- Seasonal comparison
-- Dynamic filtering
-
----
-
-## Gross Margin Analysis
-
-Monitor company profitability using:
-
-- Gross Margin dollars
-- Gross Margin %
-- COGS comparison
-- Monthly profitability trends
+- Previous Year comparisons
+- Monthly trend analysis
+- Dynamic KPI calculations
 
 ---
 
-## Interactive Filtering
+## Profitability Analysis
 
-The report includes interactive slicers allowing users to filter by:
+Analyze profitability using Gross Margin and Gross Margin %.
 
-- Year
-- Date
-
-All visuals update automatically based on user selections.
+The dashboard separates Cost of Goods Sold (COGS) from Gross Margin to provide a clearer understanding of financial performance throughout the year.
 
 ---
 
-# Technical Features
+# Data Model
 
-## Data Modeling
+The dashboard is built using a relational star schema consisting of multiple fact tables and a shared Date dimension.
 
-The report utilizes a relational data model built from multiple fact tables.
+```
+                Date
+                 │
+        ┌────────┼────────┐
+        │                 │
+ Sales Booked      Sales Invoiced
+        │                 │
+        └────────┬────────┘
+                 │
+          Shipment Goals
+```
 
-Primary datasets include:
+---
 
-- Sales Bookings
-- Sales Invoices
+# Data Pipeline
+
+```
+Excel Data Sources
+        │
+        ▼
+Power Query ETL
+        │
+        ▼
+Data Cleaning & Transformation
+        │
+        ▼
+Data Modeling
+        │
+        ▼
+DAX Measures
+        │
+        ▼
+Interactive Power BI Dashboard
+```
+
+---
+
+# Technical Implementation
+
+## Data Sources
+
+The dashboard utilizes three datasets:
+
+- Sales Booked
+- Sales Invoiced
 - Shipment Goals
-- Date Dimension
+
+A dedicated Date table supports all time intelligence calculations.
 
 ---
 
 ## Power Query
 
-Data preparation includes:
+Power Query was used to prepare and transform the source data.
+
+### Transformations
 
 - Data cleansing
-- Data type conversion
-- Column transformations
+- Type conversion
+- Date normalization
+- Relationship preparation
 - Query optimization
-- Data loading
 
 ---
 
 ## DAX
 
-Advanced DAX measures were developed for:
+Advanced DAX measures power the dashboard.
 
-- Year-over-Year calculations
+### Implemented Calculations
+
+- Year-over-Year comparisons
 - Gross Margin
 - Gross Margin %
-- Shipment Goals
-- KPI calculations
-- Dynamic comparisons
+- Shipment Goal variance
+- Dynamic KPI calculations
 - Time Intelligence
 - Conditional formatting
-- Variance analysis
+- Performance indicators
 
 ---
 
-## Time Intelligence
+## Data Modeling
 
-Implemented using custom DAX measures including:
+The report follows dimensional modeling principles using:
 
-- Previous Year comparisons
-- Dynamic date filtering
-- Current period calculations
-- Rolling comparisons
+- Fact tables
+- Date dimension
+- One-to-many relationships
+- Star schema design
 
 ---
 
@@ -148,9 +197,9 @@ Implemented using custom DAX measures including:
 | Technology | Purpose |
 |------------|---------|
 | Microsoft Power BI | Dashboard Development |
-| DAX | Business Logic & Measures |
-| Power Query | ETL & Data Transformation |
-| Excel | Sample Data Source |
+| DAX | Business Logic |
+| Power Query | ETL |
+| Excel | Data Source |
 | Data Modeling | Relational Analytics |
 
 ---
@@ -158,84 +207,88 @@ Implemented using custom DAX measures including:
 # Repository Structure
 
 ```
-sales-analytics-dashboard
+sales-analytics-dashboard/
 │
-├── dashboard
-│   └── SalesPerformance.pbix
+├── dashboard/
+│   └── Sales_Analytics_Dashboard.pbix
 │
-├── data
+├── data/
 │   ├── Sales_Booked.xlsx
 │   ├── Sales_Invoiced.xlsx
 │   └── Shipments_Goal.xlsx
 │
-├── images
+├── images/
 │   └── dashboard-overview.png
 │
+├── LICENSE
 └── README.md
 ```
 
 ---
 
-# Dashboard Preview
-
-![Dashboard](images/dashboard-overview.png)
-
----
-
 # Skills Demonstrated
 
-This project demonstrates experience with:
+## Business Intelligence
 
-- Business Intelligence
-- Dashboard Design
-- Executive Reporting
-- Data Modeling
-- Power Query
-- DAX Development
-- Time Intelligence
-- KPI Design
-- Data Visualization
-- Performance Analysis
-- Financial Reporting
+- Executive Dashboard Design
+- KPI Reporting
 - Interactive Reporting
+- Business Analytics
+
+## Data Modeling
+
+- Star Schema Design
+- Relationship Modeling
+- Date Dimension
+- Fact Tables
+
+## Power BI
+
+- Advanced DAX
+- Power Query
+- Time Intelligence
+- Dynamic Measures
+- Conditional Formatting
+
+## Analytics
+
+- Trend Analysis
+- Variance Analysis
+- Profitability Reporting
+- Goal Tracking
+- Year-over-Year Comparisons
 
 ---
 
-# Example Business Questions Answered
+# Future Enhancements
 
-This dashboard helps answer questions such as:
+Potential improvements include:
 
-- Are shipments meeting monthly goals?
-- How are bookings trending year-over-year?
-- Is profitability improving?
-- Which months are underperforming?
-- How does gross margin compare across the year?
-- Are shipment volumes increasing or decreasing?
+- SQL database integration
+- REST API data ingestion
+- Incremental Refresh
+- Drill-through reporting
+- Customer analytics
+- Product analytics
+- Forecasting models
+- Role-Level Security (RLS)
+
+---
+
+# Getting Started
+
+1. Clone or download this repository.
+2. Open `dashboard/Sales_Analytics_Dashboard.pbix` using Microsoft Power BI Desktop.
+3. If prompted, reconnect the report to the sample Excel files located in the `data/` folder.
+4. Refresh the data model.
 
 ---
 
 # Data Disclaimer
 
-All datasets included in this repository are entirely fictional and were created solely for demonstration and portfolio purposes.
+All datasets included in this repository are entirely fictional and were created solely for educational and portfolio purposes.
 
-This project is intended to showcase Power BI development skills and does not contain any proprietary, confidential, or customer data.
-
----
-
-# Future Improvements
-
-Potential future enhancements include:
-
-- Customer-level drill-through pages
-- Product performance analysis
-- Geographic sales mapping
-- Forecasting models
-- Inventory analytics
-- Sales representative scorecards
-- Role-Level Security (RLS)
-- Incremental Refresh
-- SQL database integration
-- REST API integration
+No proprietary, confidential, or customer information is contained within this repository.
 
 ---
 
@@ -245,6 +298,10 @@ Potential future enhancements include:
 
 Data Engineer | Business Intelligence Developer
 
-GitHub: https://github.com/AustinEThomas
+- GitHub: https://github.com/AustinEThomas
+- LinkedIn: https://www.linkedin.com/in/auethomas
+- Portfolio: https://austine thomas.github.io *(replace with your final URL if different)*
 
-LinkedIn: https://www.linkedin.com/in/auethomas
+---
+
+⭐ If you found this project interesting, consider starring the repository!
