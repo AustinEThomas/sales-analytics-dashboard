@@ -2,8 +2,6 @@
 
 > An interactive Power BI dashboard for monitoring sales performance, profitability, and operational KPIs using Power BI, DAX, and Power Query.
 
-![Dashboard Overview](images/dashboard-overview.png)
-
 ![Power BI](https://img.shields.io/badge/Power%20BI-BI-F2C811?logo=powerbi&logoColor=black)
 ![DAX](https://img.shields.io/badge/DAX-Time%20Intelligence-blue)
 ![Power Query](https://img.shields.io/badge/Power%20Query-ETL-green)
