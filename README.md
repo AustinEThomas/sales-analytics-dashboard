@@ -59,7 +59,7 @@ data/
     Shipments_Goal.xlsx
 
 images/
-    Dashboard_Overview.png
+    sales-analytics-dashboard.png
 
 README.md
 ```
