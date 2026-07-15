@@ -10,7 +10,7 @@ An interactive Power BI dashboard I built to analyze sales performance, shipment
 ![Excel](https://img.shields.io/badge/Data-Excel-217346?logo=microsoft-excel&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
-![Dashboard Overview](images/Dashboard_Overview.png)
+![Dashboard Overview](images/sales-analytics-dashboard.png)
 
 ---
 
